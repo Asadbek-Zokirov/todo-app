@@ -1,0 +1,350 @@
+body {
+    background-color: #1e1e1e;
+    font-family: 'Segoe UI', sans-serif;
+    color: #f5f5f5;
+  }
+  
+  .todo-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 24px;
+    background-color: #252525;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
+  .add-todo input,
+  .add-todo select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #2e2e2e;
+    color: white;
+  }
+  
+  .add-todo button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3c3c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .add-todo button:hover {
+    background-color: #5c5c5c;
+  }
+  
+  .todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2a2a2a;
+    padding: 14px 16px;
+    margin-top: 12px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px #3f3f3f;
+    transition: all 0.2s ease-in-out;
+    cursor: grab;
+  }
+  
+  .todo-item:active {
+    cursor: grabbing;
+  }
+  
+  .todo-item:hover {
+    background-color: #2e2e2e;
+  }
+  
+  .todo-item .left {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .todo-item input[type="checkbox"] {
+    margin-right: 12px;
+    transform: scale(1.3);
+    accent-color: #e06c75;
+  }
+  
+  .todo-item .text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .todo-item .text span {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+  }
+  
+  .todo-item .text span.completed {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  .todo-item .description {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #bbbbbb;
+  }
+  
+  .todo-item .right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .priority-tag {
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: capitalize;
+  }
+  
+  .priority-tag.low {
+    background-color: #3c3c3c;
+    color: #ccc;
+  }
+  
+  .priority-tag.medium {
+    background-color: #d9a228;
+    color: #1e1e1e;
+  }
+  
+  .priority-tag.high {
+    background-color: #e06c75;
+    color: white;
+  }
+  
+  .todo-item button {
+    background: none;
+    color: #ff5f56;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .todo-item button:hover {
+    color: #ff8780;
+  }
+  
+  .dragging .todo-item {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+    background-color: #333 !important;
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+
+  body.dark {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+  }
+  
+  body.light {
+    background-color: #f5f5f5;
+    color: #1e1e1e;
+  }
+  
+  .theme-toggle {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+  }
+  
+  body.light .theme-toggle {
+    background-color: #ddd;
+    color: #111;
+  }
+
+  /* Общая плавная анимация */
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  body.dark {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+  }
+  
+  body.light {
+    background-color: #f5f5f5;
+    color: #1e1e1e;
+  }
+  
+  .theme-toggle {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+  }
+  
+  body.light .theme-toggle {
+    background-color: #ddd;
+    color: #111;
+  }
+  
+  body.light .todo-container {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #1e1e1e;
+  }
+  
+  body.light input,
+  body.light select {
+    background-color: #f0f0f0;
+    color: #1e1e1e;
+    border: 1px solid #ccc;
+  }
+  
+  body.light input::placeholder,
+  body.light textarea::placeholder {
+    color: #999;
+  }
+  
+  body.light .add-todo button {
+    background-color: #d4d4d4;
+    color: #111;
+  }
+  
+  body.light .todo-item {
+    background-color: #f7f7f7;
+    box-shadow: inset 0 0 0 1px #ddd;
+    color: #1e1e1e;
+  }
+  
+  body.light .todo-item:hover {
+    background-color: #eaeaea;
+  }
+  
+  body.light .todo-item input[type="checkbox"] {
+    accent-color: #333;
+  }
+  
+  body.light .text span {
+    color: #1e1e1e;
+  }
+  
+  body.light .priority-tag.low {
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  
+  body.light .priority-tag.medium {
+    background-color: #facc15;
+    color: #1e1e1e;
+  }
+  
+  body.light .priority-tag.high {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  body.light .todo-item button {
+    color: #dc2626;
+  }
+  
+  body.light .todo-item button:hover {
+    color: #ef4444;
+  }
+  
+  body.light .text span.completed {
+    color: #888;
+  }
+  
+  body.light .description {
+    color: #666;
+  }
+  
+  .dragging .todo-item {
+    background-color: #333 !important;
+    color: #f5f5f5 !important;
+  }
+  
+  body.light .dragging .todo-item {
+    background-color: #e0e0e0 !important;
+    color: #1e1e1e !important;
+  }
+  
+  .drag-handle {
+    cursor: grab;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+  }
+  
+
+  .drag-handle {
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+  }
+  
+
+  .todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* центр по вертикали */
+    padding: 12px 16px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #1f1f1f;
+  }
+  
+
+  
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* расстояние между drag, checkbox, текстом */
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .text span {
+    font-weight: bold;
+  }
+  .text .description {
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+  
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .priority-tag {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  

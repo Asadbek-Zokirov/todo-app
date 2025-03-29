@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.jsx
+import React, { useState, useEffect } from 'react';
+import TodoList from './components/ToDoList';
+import './styles/style.css';
 
 function App() {
+  const getInitialTheme = () => {
+    const saved = localStorage.getItem('theme');
+    if (saved) return saved === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  };
+
+  const [darkMode, setDarkMode] = useState(getInitialTheme);
+
+  useEffect(() => {
+    document.body.className = darkMode ? 'dark' : 'light';
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <button className="theme-toggle" onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? '🌙 Dark' : '☀️ Light'} theme
+      </button>
+      <TodoList />
     </div>
   );
 }
